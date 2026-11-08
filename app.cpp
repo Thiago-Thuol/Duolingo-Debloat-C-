@@ -13,6 +13,8 @@ App::App(){
 }
 
 void App::UserEnter() {
+
+    ClearTerminal();
     
     bool only_new = jogadores->empty(); 
 
@@ -71,7 +73,10 @@ void App::LoadUserInterface() {
         currentUser = temp;
 
         //if the user didnt played for more than 1 day the streak is reseted
-        if (StreakCheck(currentUser->UltimaData) > 1) currentUser->streaks = 0;
+        if (StreakCheck(currentUser->UltimaData) > 1) {
+            currentUser->streaks = 0;
+            currentUser->UltimaData = TodayDate();
+        }
         ClearTerminal();
         cout << "Player Carregado com Sucesso!\n";
     }
@@ -116,6 +121,7 @@ void App::Play() {
     if (StreakCheck(currentUser->UltimaData) == 1) {
         currentUser->streaks ++;
         pointsGained *= 2;
+        currentUser->UltimaData = TodayDate();
     }
 
     if (currentUser->timesPlayed == 0) currentUser->media = pointsGained;

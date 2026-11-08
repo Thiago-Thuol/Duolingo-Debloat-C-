@@ -62,7 +62,7 @@ void save_manager::LoadPlayers(){
     while (getline(Save,linha)){
         if (linha.empty()) continue;   // ignora linhas em branco
         auto campos = SplitCsv(linha); 
-        if (campos.size() != 3) continue;
+        if (campos.size() != 6) continue;
         try {
             (*jogadores_func)[campos[0]] = Jogador{campos[0]
                 ,stoi(campos[1])
@@ -71,6 +71,7 @@ void save_manager::LoadPlayers(){
                 ,stoi(campos[4])
                 , campos[5]};
         } catch (const exception&){
+            cout << "EXEPION";
             continue;
         }
     }

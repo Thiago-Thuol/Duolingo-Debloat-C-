@@ -115,11 +115,11 @@ Questao::Questao( string p ){
 }
 string Questao::getHeader(){
     stringstream ss;
-    ss << enunciado << endl;
-    ss  << "RESPOSTA1 - "<< respostas[0] << " \n" 
-        << " " << "RESPOSTA2 - "<< respostas[1] << " \n" 
-        << " " << "RESPOSTA3 - "<< respostas[2] << " \n" 
-        << " " << "RESPOSTA4 - "<<respostas[3] << " \n";
+    ss << endl <<enunciado << endl << endl;
+    ss  << " " << "RESPOSTA1 - "<< respostas[0] << " \n\n" 
+        << " " << "RESPOSTA2 - "<< respostas[1] << " \n\n" 
+        << " " << "RESPOSTA3 - "<< respostas[2] << " \n\n" 
+        << " " << "RESPOSTA4 - "<<respostas[3] << " \n\n";
     return ss.str();
 }
 

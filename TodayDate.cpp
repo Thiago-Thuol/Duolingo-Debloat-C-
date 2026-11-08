@@ -3,6 +3,25 @@
 
 #include "TodayDate.hpp"
 
+bool PegaTempo( string& d, time_t& saida){
+    tm t {};
+
+    //define some paramether to tm work propely
+    t.tm_hour = 12;
+    t.tm_isdst = -1;
+
+    istringstream in (d);
+
+    //check if in fails
+    if (in.fail()) return false;
+
+    //pass to the addres of t the time of in using get_time function in year-mounth-day tipe
+    in >> get_time(&t, "%Y-%m-%d");
+
+    saida = mktime(&t);
+    return true;
+}
+
 string TodayDate(){
     time_t now = time(nullptr);
 
@@ -27,24 +46,6 @@ int StreakCheck(string s){
     
 }
 
-bool PegaTempo( string& d, time_t& saida){
-    tm t {};
-
-    //define some paramether to tm work propely
-    t.tm_hour = 12;
-    t.tm_isdst = -1;
-
-    istringstream in (d);
-
-    //check if in fails
-    if (in.fail()) return false;
-
-    //pass to the addres of t the time of in using get_time function in year-mounth-day tipe
-    in >> get_time(&t, "%Y-%m-%d");
-
-    saida = mktime(&t);
-    return true;
-}
 
 
 #endif

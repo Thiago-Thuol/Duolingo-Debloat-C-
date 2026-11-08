@@ -71,8 +71,10 @@ int Game::GameAnswer(int I) {
 }
 
 int Game::GameCalc(int t){
-    cout << numQuestoes << endl;
-    cout << t << endl;
+    #ifdef DEBUG 
+        cout << numQuestoes << endl;
+        cout << t << endl;
+    #endif  
     
     int escore = ( double(numQuestoes) / t) * 10;
     return escore;
