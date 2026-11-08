@@ -1,0 +1,5 @@
+build/
+main
+*.o
+*.d
+saves/
