@@ -88,7 +88,8 @@ Questao::Questao( string p ){
         } catch (const exception&) {
         throw runtime_error("Resposta invalida [" + resposta_str + "] em " + p);
         }
-
+        shuffle();
+        shuffle();
 
 #ifdef DEBUG_QUESTAO
         cout <<endl << p << endl;
